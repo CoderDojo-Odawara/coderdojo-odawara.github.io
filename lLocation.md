@@ -1,7 +1,8 @@
+---
 layout: page
 title: 開催地
 permalink: /location/
-
+---
 
 [橘タウンセンターこゆるぎ](https://www.city.odawara.kanagawa.jp/public-i/t-center/koyurugi/)  
 
