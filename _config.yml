@@ -9,5 +9,6 @@ plugins:
 #theme: jekyll-theme-cayman
 #theme: jekyll-theme-midnight
 #theme: jekyll-theme-slate
-theme: jekyll-theme-minimal
+#theme: jekyll-theme-minimal
+theme: jekyll-theme-minima
 #remote_theme: chrisrhymes/bulma-clean-theme
