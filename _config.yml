@@ -2,6 +2,10 @@ locale: "ja-JP"  # 日本語を扱うなら変更しておく
 title: "CoderDojo 小田原"
 timezone: Asia/Tokyo
 
+markdown: kramdown
+plugins:
+- jekyll-feed
+
 #theme: jekyll-theme-cayman
 #theme: jekyll-theme-midnight
 #theme: jekyll-theme-slate
