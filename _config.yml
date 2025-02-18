@@ -44,6 +44,7 @@ plugins:
 # in order as they should show up.
 header_pages:
   - about.md
+  - index.md
 
 # Minima specific settings, which are only available from Minima 3.0 onward.
 minima:
