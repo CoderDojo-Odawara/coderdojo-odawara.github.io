@@ -1,7 +1,3 @@
-markdown: kramdown
-plugins:
-- jekyll-feed
-
 #theme: jekyll-theme-cayman
 #theme: jekyll-theme-midnight
 #theme: jekyll-theme-slate
@@ -32,7 +28,7 @@ theme: minima
 # If you want to use the latest Minima version on GitHub Pages, use the following setting and 
 # add a line comment on "theme: minima" above.
 #remote_theme: jekyll/minima
-
+markdown: kramdown
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
