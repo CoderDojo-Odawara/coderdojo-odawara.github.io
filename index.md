@@ -6,7 +6,7 @@
 # See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 #
 layout: home
-title: CoderDojo 小田原
+title: CoderDojo 小田原 PreOpen
 ---
 
 ## To Do(Last Update:2025.2.13)
