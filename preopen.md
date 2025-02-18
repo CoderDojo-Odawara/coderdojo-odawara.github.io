@@ -5,8 +5,8 @@
 # To change the home page layout, edit the _layouts/home.html file.
 # See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 #
-layout: home
-title: CoderDojo 小田原 PreOpen
+layout: page
+title: PreOpen
 ---
 
 ## To Do(Last Update:2025.2.13)
