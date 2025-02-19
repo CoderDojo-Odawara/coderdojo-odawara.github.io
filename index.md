@@ -17,11 +17,11 @@ title: PreOpen
       ->そのために必要な準備  
 - [ ] 準備すべき道具のリストアップ
 - [ ] Portal作りこみ
-- [ ] 予約システム立ち上げ(Connpassで構築する)
-- [ ] 資料作り
+- [ ] 各種資料作り
 - [X] 会場決め  
-- [X] 新規CoderDojo設立申請
 - [X] Safeguarding Sponsorになって下さる方を探す
+- [X] 新規CoderDojo設立申請
+- [X] 予約システム立ち上げ(Connpassで構築する)
 - [X] 道具を保管する場所の確保
 
 
