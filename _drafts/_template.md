@@ -8,10 +8,10 @@ header:
   overlay_filter: 0.4
   caption: "[画像の説明]"
 tagline: "[副題]"
-categories: [output|input|diary|setup]
-tags: [ruby|rails|buy|jekyll|smalruby|progshou|review|event|capybara]
+categories: [　]
+tags: [　]
 toc: [true|false]
-last_modified_at: [タイムスタンプ C-c C-d]
+last_modified_at: [タイムスタンプ YYYY-MM-DD]
 ---
 
 *[概要]*
