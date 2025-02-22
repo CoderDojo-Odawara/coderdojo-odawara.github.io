@@ -1,0 +1,11 @@
+main:
+  - title: "CoderDojo 小田原について"
+    url: /about/
+  - title: "活動記録"
+    url: /year-archive/
+  - title: "カテゴリ"
+    url: /categories/
+  - title: "タグ"
+    url: /tags/
+  - title: "サイトマップ"
+    url: /sitemap/
