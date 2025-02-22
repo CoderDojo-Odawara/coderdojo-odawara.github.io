@@ -4,7 +4,7 @@ author_profile: true
 title: "PreOpen"
 ---
 
-## To Do(Last Update:2025.2.13)
+## To Do(Last Update:2025.2.22)
 - [ ] 頻度、時期
 - [ ] 大まかな方針決め 
 - [ ] 詳細な方針決め  
