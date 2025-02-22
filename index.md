@@ -10,7 +10,7 @@ title: "PreOpen"
 - [ ] 詳細な方針決め  
       ->何をウリにするか  
       ->そのために必要な準備  
-- [ ] Portal作りこみ
+- [ ] Pagesの作りこみ
 - [ ] 各種資料作り
 - [X] 会場決め  
 - [X] Safeguarding Sponsorになって下さる方を探す
