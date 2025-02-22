@@ -16,6 +16,6 @@ last_modified_at: [タイムスタンプ C-c C-d]
 
 *[概要]*
 
-{% include advertisements.html %}
+
 
 *[本文]*
