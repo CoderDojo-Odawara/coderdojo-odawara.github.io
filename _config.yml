@@ -11,7 +11,7 @@
 # https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#installing-the-theme
 
 #theme                    : "minimal-mistakes-jekyll"
-remote_theme             : "mmistakes/minimal-mistakes" #@4.24.0
+remote_theme             : "mmistakes/minimal-mistakes"
 minimal_mistakes_skin    : "air" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
@@ -21,7 +21,7 @@ title_separator          : "-"
 subtitle                 : "神奈川県小田原市で活動するDoderDojo 小田原のページ。"
 name                     : "CoderDojo 小田原"
 description              : "主にプログラミング言語Rubyを使ったソフトウェア開発のなかで「なるほど」と感じたことや「それは○○だよ」と説明できることを記事にしていきます"
-url                      : "https://coderdojo-odarara.github.io"
+url                      : "https://coderdojo-odawara.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "CoderDojo-Odawara/coderdojo-odawara.github.io"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
