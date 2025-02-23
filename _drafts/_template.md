@@ -10,7 +10,7 @@ header:
 tagline: "[副題]"
 categories: [　]
 tags: [　]
-toc: [true|false]
+toc: [true|false]　# 目次
 last_modified_at: [タイムスタンプ YYYY-MM-DD]
 ---
 
