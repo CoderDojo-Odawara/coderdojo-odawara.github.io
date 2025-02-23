@@ -4,7 +4,7 @@ author_profile: true
 title: "PreOpen"
 ---
 
-## To Do(Last Update:2025.2.22)
+## To Do(Last Update:2025.2.24)
 - [ ] 頻度、時期
 - [ ] 大まかな方針決め 
 - [ ] 詳細な方針決め  
@@ -12,6 +12,7 @@ title: "PreOpen"
       ->そのために必要な準備  
 - [ ] Pagesの作りこみ
 - [ ] 各種資料作り
+- [ ] 道具類、機器類の収集(継続課題)
 - [X] 会場決め  
 - [X] Safeguarding Sponsorになって下さる方を探す
 - [X] 新規CoderDojo設立申請
