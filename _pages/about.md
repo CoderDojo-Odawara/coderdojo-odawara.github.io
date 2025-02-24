@@ -36,7 +36,7 @@ CoderDojo小田原はこの憲章に賛同し、2025年2月に小田原市で活
 - PC端末(一式)
   
 ## スケジュール確認、参加予約
-Connpass CoderDojo 小田原グループにてスケジュール確認、参加予約ができます。
+Connpass CoderDojo 小田原グループにてスケジュール確認、参加予約ができます。  
 [Connpass CoderDojo 小田原グループ](https://coderdojo-odawara.connpass.com)
 
 
