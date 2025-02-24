@@ -16,7 +16,7 @@ sitemap: true
 
 ## pyxel
 サンプルプログラム  
-[ぷよもどき](https://coderdojo-odawara.github.io/pypuyo_demo/)
+[ぷよもどき](https://coderdojo-odawara.github.io/pypuyo_demo/){:target="_blank"}
 pyxelを用いてweb版のサンプルを作成しました。
 1.アローキー左右で移動
 2.下で落下加速  
