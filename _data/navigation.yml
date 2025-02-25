@@ -1,7 +1,7 @@
 main:
   - title: "CoderDojo 小田原について"
     url: /about/
-  - title: "学べるプログラム"
+  - title: "学べるプログラム例"
     url: /programs/
   - title: "活動記録"
     url: /year-archive/
