@@ -14,8 +14,6 @@ toc: false
 last_modified_at: 2025-02-22
 ---
 
-## Dojo開催地候補を借りて実際に使ってみる。
-
 CoderDojo 小田原の開催地候補である橘タウンセンターこゆるぎを実際に借りてみた。今回お借りしたのは3Fの集会場。
 
 <img src="/assets/images/CoderDojo_prepra1/1.JPG" style="zoom:67%;" />
