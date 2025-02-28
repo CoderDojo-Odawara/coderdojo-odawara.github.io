@@ -1,3 +1,3 @@
 User-agent: *
-Allow: /
+Dissallow: /assets/images
 Sitemap: https://coderdojo-odawara.github.io/sitemap.xml
