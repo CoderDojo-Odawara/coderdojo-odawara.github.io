@@ -14,7 +14,6 @@ tags:
 - Raspberry Pi
 - bookworm 
 toc: false
-draft: true
 last_modified_at: 2025-03-01
 ---
 
@@ -31,9 +30,8 @@ last_modified_at: 2025-03-01
 
     sudo vim /etc/udev/rules.d/99-ap0.rules
 
-  
-  
-    '/etc/udev/rules.d/99-ap0.rules'  
+で新規ファイルを作成して
+
     SUBSYSTEM=="ieee80211", ACTION=="add|change", ATTR{macaddress}=="[wlan0と同じMACアドレス]", KERNEL=="phy0", \
     RUN+="/sbin/iw phy phy0 interface add ap0 type __ap", \
     RUN+="/bin/ip link set ap0 address [wlan0と同じMACアドレス]"
@@ -44,6 +42,9 @@ last_modified_at: 2025-03-01
 最終的には  HOME ディレクトリに内容を記載したap.shを配置して
 
     vim ~/.config/labwc/autostart
+
+として自動起動ようのファイルを作成、
+
 
     '~/.config/labwc/autostart'
     $HOME/ap.sh
@@ -57,14 +58,18 @@ last_modified_at: 2025-03-01
     nmcli con modify hotspot wifi-sec.psk "[決めたパスワード]"
     nmcli con modify hotspot 802-11-wireless.mode ap 802-11-wireless.band bg ipv4.method shared
     nmcli con modify hotspot ipv4.address 192.168.50.1/24
+とルーター化をするために各種設定をして  
 
     nmcli connection up hotspot
+とした。  
+最後に  
 
-    sudo /etc/sysctl.conf
+    sudo vim /etc/sysctl.conf
+内容は  
 
     net.ipv4.ip_forward=1 //コメントを外す
+とコメントを外して最後に  
 
     sudo systemctl reboot --now
 
-
-再度リブートを行って無事機能していることを確認した。
+で無事機能していることを確認した。
