@@ -47,7 +47,6 @@ last_modified_at: 2025-03-01
 として自動起動ようのファイルを作成、
 
 
-    '~/.config/labwc/autostart'
     $HOME/ap.sh
 
 とすることで解決。
