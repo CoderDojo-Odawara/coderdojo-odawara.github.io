@@ -78,5 +78,5 @@ last_modified_at: 2025-03-01
 で無事機能していることを確認した。
 
 ###### 参考文献
-⒈  [Raspberry Pi 5B(bookworm) アクセスポイント化＆ルータ化メモ](https://qiita.com/d-ebi/items/2b8e6113690f24487c3e)  
+1. [Raspberry Pi 5B(bookworm) アクセスポイント化＆ルータ化メモ](https://qiita.com/d-ebi/items/2b8e6113690f24487c3e)  
 2. [raspberry pi の色々メモ](https://ika360.hatenablog.com/entry/2024/08/14/164023)
