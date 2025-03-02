@@ -79,4 +79,4 @@ last_modified_at: 2025-03-01
 
 ###### 参考文献
 1. [Raspberry Pi 5B(bookworm) アクセスポイント化＆ルータ化メモ](https://qiita.com/d-ebi/items/2b8e6113690f24487c3e)  
-2. [raspberry pi の色々メモ](https://ika360.hatenablog.com/entry/2024/08/14/164023)
+2. [Raspberry Pi OS BookwormでGUIアプリを自動起動させる3つの方法](https://qiita.com/mao172/items/4014ae9d8e1252ddde86)
