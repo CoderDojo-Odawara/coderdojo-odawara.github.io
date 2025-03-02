@@ -7,7 +7,7 @@ header:
   overlay_image: /assets/images/x.png
   overlay_filter: 0.4
   caption: ""
-tagline: "Bookwormの使用に悪戦苦闘"
+tagline: "Bookwormの仕様に悪戦苦闘"
 categories: 
 - チャンピオン記録帳
 tags:
