@@ -25,7 +25,7 @@ last_modified_at: 2025-03-01
     sudo iw phy phy0 interface add ap0 type __ap
     sudo ip link set ap0 address [wlan0と同じMACアドレス]
 
-ここで 'iw dev'をして仮想デバイスの 'ap0 ' が作成されていることを確認。  
+ここで `iw dev`をして仮想デバイスの `ap0` が作成されていることを確認。  
 その後設定の永続化をするために
 
     sudo vim /etc/udev/rules.d/99-ap0.rules
@@ -37,7 +37,7 @@ last_modified_at: 2025-03-01
     RUN+="/bin/ip link set ap0 address [wlan0と同じMACアドレス]"
 
 
-とし、リブートしてみたところ再起動後数秒はうまくいくのだけどもその後'ap0'が消えてしまうので  
+とし、リブートしてみたところ再起動後数秒はうまくいくのだけどもその後`ap0`が消えてしまうので  
 別の方法を模索。(ここが一番時間かかった。。。)
 
 最終的には  HOME ディレクトリに内容を記載したap.shを配置して
@@ -76,3 +76,7 @@ last_modified_at: 2025-03-01
     sudo systemctl reboot --now
 
 で無事機能していることを確認した。
+
+###### 参考文献
+⒈  [Raspberry Pi 5B(bookworm) アクセスポイント化＆ルータ化メモ](https://qiita.com/d-ebi/items/2b8e6113690f24487c3e)  
+2. [raspberry pi の色々メモ](https://ika360.hatenablog.com/entry/2024/08/14/164023)
