@@ -15,12 +15,16 @@ sitemap: true
 ## toio
 
 ## pyxel
-サンプルプログラム  
-[ぷよもどき](https://coderdojo-odawara.github.io/pypuyo_demo/){:target="_blank"}
-pyxelを用いてweb版のサンプルを作成しました。
-1.アローキー左右で移動
-2.下で落下加速  
-3.スペースキーで回転です。
+
+Xで出ていたすごいpyxelゲームの例<br>
+<br>
+[@Prosamo314](https://x.com/Prosamo314) <br>
+ぷよぷよ<br>
+[https://prosamo.github.io/puyopuyo/](https://prosamo.github.io/puyopuyo/) <br>
+<br>
+[@cobinee](https://x.com/cobinee) <br>
+SFZ <br>
+[https://cobinee.github.io/sfz-pyxel/packages/](https://cobinee.github.io/sfz-pyxel/packages/)
 
 
 ## NODE-RED
