@@ -1,6 +1,6 @@
 ---
-layout: splash
-title: 学べるプログラム
+layout: home
+title: 学べるプログラム例
 permalink: /programs/
 last_modified_at: 2025-02-24
 toc: true
