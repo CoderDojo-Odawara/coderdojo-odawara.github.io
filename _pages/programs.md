@@ -1,4 +1,5 @@
 ---
+layout: default
 title: 学べるプログラム
 permalink: /programs/
 last_modified_at: 2025-02-24
