@@ -85,7 +85,8 @@ sudo vim /etc/sysctl.conf
 
 内容は  
 
-/etc/sysctl.conf {: .btn .btn--primary}
+/etc/sysctl.conf 
+{: .btn .btn--primary}
 
 ```
 net.ipv4.ip_forward=1 //コメントを外す
