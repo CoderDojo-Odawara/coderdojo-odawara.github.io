@@ -1,7 +1,6 @@
 ---
 layout: home
 author_profile: true
-title: "PreOpen"
 ---
 
 ## 参加者募集開始につきまして
