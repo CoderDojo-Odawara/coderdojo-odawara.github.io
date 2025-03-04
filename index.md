@@ -26,4 +26,4 @@ title: 参加者募集開始につきまして
 - [X] 頻度、時期 ->第三土曜日、もしくは第四土曜日を候補として不定期開催
 
 ### 開催予定
-<iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Asia%2FTokyo&showPrint=0&src=b2Rhd2FyYS5qcEBjb2RlcmRvam8uY29t&color=%23039BE5" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+<iframe src="https://calendar.google.com/calendar/embed?height=400&wkst=1&ctz=Asia%2FTokyo&showPrint=0&title=CoderDojo%20%E5%B0%8F%E7%94%B0%E5%8E%9F%E3%82%B9%E3%82%B1%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB&showTz=0&mode=AGENDA&src=b2Rhd2FyYS5qcEBjb2RlcmRvam8uY29t&color=%23039BE5" style="border:solid 1px #777" width="600" height="400" frameborder="0" scrolling="no"></iframe>
