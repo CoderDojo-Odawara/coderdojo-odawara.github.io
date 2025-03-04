@@ -26,4 +26,4 @@ title: "PreOpen"
 - [X] 頻度、時期 ->第三土曜日、もしくは第四土曜日を候補として不定期開催
 
 ### 開催予定
-<iframe src="https://calendar.google.com/calendar/embed?src=odawara.jp%40coderdojo.com&ctz=Europe%2FDublin" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+<iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Asia%2FTokyo&showPrint=0&src=b2Rhd2FyYS5qcEBjb2RlcmRvam8uY29t&color=%23039BE5" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
