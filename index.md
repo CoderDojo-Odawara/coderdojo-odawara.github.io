@@ -1,9 +1,9 @@
 ---
 layout: home
 author_profile: true
+title: 参加者募集開始につきまして
 ---
 
-## 参加者募集開始につきまして
 2025年3月15日(土)より対外的な運用を少しずつ開始します。  
 まだまだ道具類は揃っていませんが[Connpass](https://coderdojo-odawara.connpass.com/)にて対外的な参加者募集開始予定でます。
 
