@@ -182,8 +182,8 @@
         "name": "",
         "rules": [
             {
-                "p": "sheet",
                 "t": "set",
+                "p": "sheet",
                 "pt": "global",
                 "to": "payload",
                 "tot": "msg"
@@ -287,7 +287,8 @@
         "y": 420,
         "wires": [
             [
-                "2c430f7628d4b96e"
+                "2c430f7628d4b96e",
+                "ca124c94b44b6788"
             ]
         ]
     },
@@ -374,7 +375,7 @@
         "creds": "d0e3e8126bc60146",
         "method": "get",
         "action": "",
-        "sheet": "1Bo8qtQdOYGffxWqGh-20y_9BuBXyhPacgNAj-L_YQHw",
+        "sheet": "",
         "cells": "A2:D20",
         "flatten": false,
         "name": "",
@@ -453,7 +454,10 @@
         "x": 1060,
         "y": 640,
         "wires": [
-            []
+            [
+                "2d11860938385be3",
+                "c7ce51350470a77c"
+            ]
         ]
     },
     {
@@ -562,6 +566,84 @@
         "info": "",
         "x": 420,
         "y": 740,
+        "wires": []
+    },
+    {
+        "id": "c7ce51350470a77c",
+        "type": "debug",
+        "z": "79f0df2f.02eb9",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1500,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "2d11860938385be3",
+        "type": "change",
+        "z": "79f0df2f.02eb9",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.\"今日の発表者\"",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1270,
+        "y": 760,
+        "wires": [
+            [
+                "c7ce51350470a77c",
+                "d056321330fc00ea"
+            ]
+        ]
+    },
+    {
+        "id": "d056321330fc00ea",
+        "type": "GSheet",
+        "z": "79f0df2f.02eb9",
+        "creds": "d0e3e8126bc60146",
+        "method": "update",
+        "action": "",
+        "sheet": "1Bo8qtQdOYGffxWqGh-20y_9BuBXyhPacgNAj-L_YQHw",
+        "cells": "発表者!A1",
+        "flatten": false,
+        "name": "",
+        "x": 1530,
+        "y": 880,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ca124c94b44b6788",
+        "type": "debug",
+        "z": "79f0df2f.02eb9",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1050,
+        "y": 520,
         "wires": []
     },
     {
