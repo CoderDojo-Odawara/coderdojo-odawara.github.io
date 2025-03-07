@@ -1,0 +1,689 @@
+[
+    {
+        "id": "79f0df2f.02eb9",
+        "type": "tab",
+        "label": "フロー 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "ca385e6f.91168",
+        "type": "function",
+        "z": "79f0df2f.02eb9",
+        "name": "重複判定する",
+        "func": "msg.payload = msg.payload.toUpperCase();\n\nvar id = global.get(\"befor_id\");\nif(id === msg.payload){\n    msg.id = msg.payload;\n    msg.payload = \"dupe\";\n} else {\n    id = msg.payload;\n    global.set(\"befor_id\",id);\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 300,
+        "wires": [
+            [
+                "fe1cd523.0fe5f8"
+            ]
+        ]
+    },
+    {
+        "id": "8e4b7b90.65f278",
+        "type": "inject",
+        "z": "79f0df2f.02eb9",
+        "name": "初期化",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 80,
+        "wires": [
+            [
+                "85de88b6.978ad8"
+            ]
+        ]
+    },
+    {
+        "id": "fe1cd523.0fe5f8",
+        "type": "switch",
+        "z": "79f0df2f.02eb9",
+        "name": "重複分岐",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "dupe",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 520,
+        "y": 300,
+        "wires": [
+            [
+                "3dfa9006.046ee"
+            ],
+            [
+                "5c873fdc3bbde1c6"
+            ]
+        ]
+    },
+    {
+        "id": "3dfa9006.046ee",
+        "type": "debug",
+        "z": "79f0df2f.02eb9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "id",
+        "targetType": "msg",
+        "x": 690,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "996a90dc.54f2d",
+        "type": "comment",
+        "z": "79f0df2f.02eb9",
+        "name": "コンテキストの初期化（フロー開始時に処理）",
+        "info": "",
+        "x": 220,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "b6c1bf6b.c819a",
+        "type": "comment",
+        "z": "79f0df2f.02eb9",
+        "name": "テスト用",
+        "info": "",
+        "x": 120,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "94ccae53.d0e43",
+        "type": "catch",
+        "z": "79f0df2f.02eb9",
+        "name": "",
+        "scope": [
+            "83891ff2.d5d5f"
+        ],
+        "uncaught": false,
+        "x": 250,
+        "y": 500,
+        "wires": [
+            [
+                "cd9bc93b.d6c148"
+            ]
+        ]
+    },
+    {
+        "id": "cd9bc93b.d6c148",
+        "type": "debug",
+        "z": "79f0df2f.02eb9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 470,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "146fdb2c.c865f5",
+        "type": "inject",
+        "z": "79f0df2f.02eb9",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1Bo8qtQdOYGffxWqGh-20y_9BuBXyhPacgNAj-L_YQHw",
+        "payloadType": "str",
+        "x": 90,
+        "y": 160,
+        "wires": [
+            [
+                "3b0c62c7.b84f8e"
+            ]
+        ]
+    },
+    {
+        "id": "3b0c62c7.b84f8e",
+        "type": "change",
+        "z": "79f0df2f.02eb9",
+        "name": "",
+        "rules": [
+            {
+                "p": "sheet",
+                "t": "set",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 260,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e5dc3195.99635",
+        "type": "comment",
+        "z": "79f0df2f.02eb9",
+        "name": "スプレットシートIDをセット（フロー開始時に処理）",
+        "info": "",
+        "x": 240,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "85de88b6.978ad8",
+        "type": "change",
+        "z": "79f0df2f.02eb9",
+        "name": "",
+        "rules": [
+            {
+                "p": "cell_count",
+                "t": "set",
+                "pt": "global",
+                "to": "2",
+                "tot": "num"
+            },
+            {
+                "p": "befor_id",
+                "t": "set",
+                "pt": "global",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 300,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d0e6428ec77ba566",
+        "type": "inject",
+        "z": "79f0df2f.02eb9",
+        "name": "テスト用ID",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "jugemujugemu",
+        "payloadType": "str",
+        "x": 120,
+        "y": 320,
+        "wires": [
+            [
+                "ca385e6f.91168"
+            ]
+        ]
+    },
+    {
+        "id": "660af8072aabaf41",
+        "type": "function",
+        "z": "79f0df2f.02eb9",
+        "name": "列をインクリメント",
+        "func": "var count = global.get(\"cell_count\");\ncount += 1;\nglobal.set(\"cell_count\",count);\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 920,
+        "y": 420,
+        "wires": [
+            [
+                "2c430f7628d4b96e"
+            ]
+        ]
+    },
+    {
+        "id": "0f560e0fd535c7c8",
+        "type": "comment",
+        "z": "79f0df2f.02eb9",
+        "name": "スプレットシートへの書き込み",
+        "info": "",
+        "x": 770,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "9222a565bcddac98",
+        "type": "GSheet",
+        "z": "79f0df2f.02eb9",
+        "creds": "d0e3e8126bc60146",
+        "method": "append",
+        "action": "",
+        "sheet": "",
+        "cells": "A1",
+        "flatten": false,
+        "name": "",
+        "x": 710,
+        "y": 420,
+        "wires": [
+            [
+                "660af8072aabaf41"
+            ]
+        ]
+    },
+    {
+        "id": "5c873fdc3bbde1c6",
+        "type": "change",
+        "z": "79f0df2f.02eb9",
+        "name": "日付を取得",
+        "rules": [
+            {
+                "t": "set",
+                "p": "date",
+                "pt": "msg",
+                "to": "$fromMillis($millis() + 9*60*60*1000,'[Y0001]/[M01]/[D01] [H01]:[m01]')",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 710,
+        "y": 360,
+        "wires": [
+            [
+                "2dcd155c50b3fa1f"
+            ]
+        ]
+    },
+    {
+        "id": "2dcd155c50b3fa1f",
+        "type": "function",
+        "z": "79f0df2f.02eb9",
+        "name": "各種情報をリストにまとめる",
+        "func": "var count = global.get(\"cell_count\");\nvar cell = count ;\ncell = \"C\" + cell ;\nvar exec = '=xlookup(' + cell + ',\\'Look Up Table\\'!B3:B14,\\'Look Up Table\\'!C3:C14,\"\")';\n\ncount -= 1;\nmsg.payload = [count , msg.date ,msg.payload, exec ];\nmsg.sheet = global.get(\"sheet\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 960,
+        "y": 360,
+        "wires": [
+            [
+                "9222a565bcddac98"
+            ]
+        ]
+    },
+    {
+        "id": "2c430f7628d4b96e",
+        "type": "GSheet",
+        "z": "79f0df2f.02eb9",
+        "creds": "d0e3e8126bc60146",
+        "method": "get",
+        "action": "",
+        "sheet": "1Bo8qtQdOYGffxWqGh-20y_9BuBXyhPacgNAj-L_YQHw",
+        "cells": "A2:D20",
+        "flatten": false,
+        "name": "",
+        "x": 410,
+        "y": 640,
+        "wires": [
+            [
+                "4f54fdf6109a64ff"
+            ]
+        ]
+    },
+    {
+        "id": "4f54fdf6109a64ff",
+        "type": "ui-table",
+        "z": "79f0df2f.02eb9",
+        "group": "979197404eb75c0f",
+        "name": "参加者の表示",
+        "label": "",
+        "order": 1,
+        "width": "0",
+        "height": "0",
+        "maxrows": 0,
+        "passthru": false,
+        "autocols": false,
+        "showSearch": false,
+        "selectionType": "none",
+        "columns": [
+            {
+                "title": "",
+                "key": "3",
+                "keyType": "key",
+                "type": "button",
+                "width": "",
+                "align": "center"
+            }
+        ],
+        "mobileBreakpoint": "sm",
+        "mobileBreakpointType": "defaults",
+        "action": "replace",
+        "x": 660,
+        "y": 640,
+        "wires": [
+            [
+                "df983659daacc35e"
+            ]
+        ]
+    },
+    {
+        "id": "1a4282f0b8f43c36",
+        "type": "ui-table",
+        "z": "79f0df2f.02eb9",
+        "group": "18051751d3c25296",
+        "name": "発表者の表示",
+        "label": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "maxrows": 0,
+        "passthru": false,
+        "autocols": false,
+        "showSearch": false,
+        "selectionType": "checkbox",
+        "columns": [
+            {
+                "title": "",
+                "key": "今日の発表者",
+                "keyType": "key",
+                "type": "button",
+                "width": "",
+                "align": "start"
+            }
+        ],
+        "mobileBreakpoint": "sm",
+        "mobileBreakpointType": "defaults",
+        "action": "append",
+        "x": 1060,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "df983659daacc35e",
+        "type": "function",
+        "z": "79f0df2f.02eb9",
+        "name": "発表者名を抽出",
+        "func": "let str = msg.payload[3];\nmsg.payload = [{\"今日の発表者\": str }]; // 1列のテーブルとして表示\nreturn msg;\n\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 640,
+        "wires": [
+            [
+                "1a4282f0b8f43c36"
+            ]
+        ]
+    },
+    {
+        "id": "d0b8437ee978ea53",
+        "type": "inject",
+        "z": "79f0df2f.02eb9",
+        "name": " 再起動時に初期化",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[]",
+        "payloadType": "json",
+        "x": 430,
+        "y": 780,
+        "wires": [
+            [
+                "1a4282f0b8f43c36"
+            ]
+        ]
+    },
+    {
+        "id": "2ae253f85e1fe14a",
+        "type": "ui-button",
+        "z": "79f0df2f.02eb9",
+        "group": "155457867bed6788",
+        "name": "",
+        "label": "リセット",
+        "order": 1,
+        "width": "1",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "[]",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 480,
+        "y": 820,
+        "wires": [
+            [
+                "1a4282f0b8f43c36"
+            ]
+        ]
+    },
+    {
+        "id": "9baef00cd445315e",
+        "type": "comment",
+        "z": "79f0df2f.02eb9",
+        "name": "ダッシュボード作成",
+        "info": "",
+        "x": 430,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "aabb6b97dd45179e",
+        "type": "comment",
+        "z": "79f0df2f.02eb9",
+        "name": "発表者の初期化",
+        "info": "",
+        "x": 420,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "d0e3e8126bc60146",
+        "type": "gauth",
+        "name": "dojoattendance@avid-reference-452801-s1.iam.gserviceaccount.com"
+    },
+    {
+        "id": "979197404eb75c0f",
+        "type": "ui-group",
+        "z": "79f0df2f.02eb9",
+        "name": "今日の参加者",
+        "page": "f1ab2a6eb40e21ac",
+        "width": "3",
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "true",
+        "groupType": "default"
+    },
+    {
+        "id": "18051751d3c25296",
+        "type": "ui-group",
+        "name": "今日の発表者",
+        "page": "f1ab2a6eb40e21ac",
+        "width": "3",
+        "height": 1,
+        "order": 2,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "155457867bed6788",
+        "type": "ui-group",
+        "name": "",
+        "page": "f1ab2a6eb40e21ac",
+        "width": "2",
+        "height": 1,
+        "order": 3,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "f1ab2a6eb40e21ac",
+        "type": "ui-page",
+        "name": "Coderdojo odawara",
+        "ui": "51cf73e59fde4c4b",
+        "path": "/CoderDojo_Odawara",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "db025027872436ff",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "51cf73e59fde4c4b",
+        "type": "ui-base",
+        "name": "CoderDojo 小田原",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "none",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true
+    },
+    {
+        "id": "db025027872436ff",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094ce",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "compact",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    }
+]
