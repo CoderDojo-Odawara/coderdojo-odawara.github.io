@@ -88,6 +88,8 @@
         "tostatus": false,
         "complete": "id",
         "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
         "x": 690,
         "y": 260,
         "wires": []
@@ -287,8 +289,7 @@
         "y": 420,
         "wires": [
             [
-                "2c430f7628d4b96e",
-                "ca124c94b44b6788"
+                "2c430f7628d4b96e"
             ]
         ]
     },
@@ -455,8 +456,7 @@
         "y": 640,
         "wires": [
             [
-                "2d11860938385be3",
-                "c7ce51350470a77c"
+                "2d11860938385be3"
             ]
         ]
     },
@@ -569,22 +569,6 @@
         "wires": []
     },
     {
-        "id": "c7ce51350470a77c",
-        "type": "debug",
-        "z": "79f0df2f.02eb9",
-        "name": "debug 1",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1500,
-        "y": 640,
-        "wires": []
-    },
-    {
         "id": "2d11860938385be3",
         "type": "change",
         "z": "79f0df2f.02eb9",
@@ -603,12 +587,11 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1270,
-        "y": 760,
+        "x": 1280,
+        "y": 660,
         "wires": [
             [
-                "c7ce51350470a77c",
-                "d056321330fc00ea"
+                "bc649a88ec502149"
             ]
         ]
     },
@@ -619,32 +602,35 @@
         "creds": "d0e3e8126bc60146",
         "method": "update",
         "action": "",
-        "sheet": "1Bo8qtQdOYGffxWqGh-20y_9BuBXyhPacgNAj-L_YQHw",
+        "sheet": "",
         "cells": "発表者!A1",
         "flatten": false,
         "name": "",
-        "x": 1530,
-        "y": 880,
+        "x": 1370,
+        "y": 760,
         "wires": [
             []
         ]
     },
     {
-        "id": "ca124c94b44b6788",
-        "type": "debug",
+        "id": "bc649a88ec502149",
+        "type": "function",
         "z": "79f0df2f.02eb9",
-        "name": "debug 2",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
+        "name": "SheetのID取得しなおし",
+        "func": "msg.sheet = global.get(\"sheet\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
         "x": 1050,
-        "y": 520,
-        "wires": []
+        "y": 760,
+        "wires": [
+            [
+                "d056321330fc00ea"
+            ]
+        ]
     },
     {
         "id": "d0e3e8126bc60146",
