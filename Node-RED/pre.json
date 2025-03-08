@@ -11,15 +11,15 @@
         "type": "function",
         "z": "599c8c01368ee592",
         "name": "重複判定する",
-        "func": "msg.payload = msg.payload.toUpperCase();\n\nvar id = global.get(\"befor_id\");\nif(id === msg.payload){\n    msg.id = msg.payload;\n    msg.payload = \"dupe\";\n} else {\n    id = msg.payload;\n    global.set(\"befor_id\",id);\n}\nreturn msg;",
+        "func": "msg.payload = msg.payload.toUpperCase();\nmsg.payload = msg.payload.replace(/\\r?\\n/g, \"\");\n\nvar id = global.get(\"befor_id\");\n\nif (msg.payload === null) {\n    msg.payload = 'null';\n} else if (id === msg.payload) {\n    msg.id = msg.payload;\n    msg.payload = \"dupe\";\n} else {\n    id = msg.payload;\n    global.set(\"befor_id\", id);\n}\n\nreturn msg;\n",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 320,
-        "y": 300,
+        "x": 360,
+        "y": 240,
         "wires": [
             [
                 "a440b77d3428c118"
@@ -70,15 +70,23 @@
                 "vt": "str"
             },
             {
+                "t": "eq",
+                "v": "",
+                "vt": "str"
+            },
+            {
                 "t": "else"
             }
         ],
         "checkall": "true",
         "repair": false,
-        "outputs": 2,
-        "x": 520,
+        "outputs": 3,
+        "x": 540,
         "y": 300,
         "wires": [
+            [
+                "f2e83cc70ae37f2e"
+            ],
             [
                 "f2e83cc70ae37f2e"
             ],
@@ -100,8 +108,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 690,
-        "y": 260,
+        "x": 730,
+        "y": 180,
         "wires": []
     },
     {
@@ -120,8 +128,8 @@
         "z": "599c8c01368ee592",
         "name": "テスト用",
         "info": "",
-        "x": 120,
-        "y": 220,
+        "x": 100,
+        "y": 260,
         "wires": []
     },
     {
@@ -202,7 +210,7 @@
         "topic": "",
         "payload": "jugemujugemu",
         "payloadType": "str",
-        "x": 80,
+        "x": 100,
         "y": 300,
         "wires": [
             [
@@ -314,14 +322,14 @@
         "method": "get",
         "action": "",
         "sheet": "",
-        "cells": "A2:D20",
+        "cells": "D2:D30",
         "flatten": false,
         "name": "",
         "x": 130,
         "y": 580,
         "wires": [
             [
-                "0020f62a1a0cb0d9"
+                "abe2ebe2e9c02b92"
             ]
         ]
     },
@@ -337,8 +345,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 620,
-        "y": 580,
+        "x": 720,
+        "y": 540,
         "wires": [
             [
                 "912184f137f6e0f9"
@@ -414,8 +422,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 800,
-        "y": 680,
+        "x": 980,
+        "y": 620,
         "wires": [
             [
                 "f17b7b0abbffa373"
@@ -433,8 +441,8 @@
         "cells": "発表者!A1",
         "flatten": false,
         "name": "",
-        "x": 890,
-        "y": 760,
+        "x": 950,
+        "y": 720,
         "wires": [
             []
         ]
@@ -451,8 +459,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 630,
-        "y": 760,
+        "x": 690,
+        "y": 720,
         "wires": [
             [
                 "2db4b84b923893a9"
@@ -516,7 +524,7 @@
         "columns": [
             {
                 "title": "",
-                "key": "3",
+                "key": "0",
                 "keyType": "key",
                 "type": "button",
                 "width": "",
@@ -526,8 +534,8 @@
         "mobileBreakpoint": "sm",
         "mobileBreakpointType": "defaults",
         "action": "replace",
-        "x": 420,
-        "y": 580,
+        "x": 520,
+        "y": 600,
         "wires": [
             [
                 "65db03be98cba1e5"
@@ -562,8 +570,8 @@
         "mobileBreakpoint": "sm",
         "mobileBreakpointType": "defaults",
         "action": "append",
-        "x": 840,
-        "y": 580,
+        "x": 960,
+        "y": 540,
         "wires": [
             [
                 "8f4d60b980cd7308"
@@ -584,14 +592,14 @@
                 "vt": "str"
             }
         ],
-        "repeat": "",
+        "repeat": "5",
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 80,
+        "x": 100,
         "y": 420,
         "wires": [
             [
@@ -611,11 +619,10 @@
         "winHide": false,
         "oldrc": false,
         "name": "NFC読み取り",
-        "x": 260,
-        "y": 380,
+        "x": 320,
+        "y": 420,
         "wires": [
             [
-                "1d0c4ee753ead962",
                 "0a8252a60ee700ad"
             ],
             [],
@@ -641,11 +648,29 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 280,
-        "y": 460,
+        "x": 340,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "abe2ebe2e9c02b92",
+        "type": "function",
+        "z": "599c8c01368ee592",
+        "name": "スプシの重複排除",
+        "func": "let uniquePayload = [...new Set(msg.payload.map(JSON.stringify))].map(JSON.parse);\n\nmsg.payload = uniquePayload;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 560,
         "wires": [
             [
-                "b6ff21deda237638"
+                "0020f62a1a0cb0d9"
             ]
         ]
     },
@@ -758,7 +783,7 @@
         "name": "標準",
         "colors": {
             "surface": "#ffffff",
-            "primary": "#0094ce",
+            "primary": "#324a77",
             "bgPage": "#eeeeee",
             "groupBg": "#ffffff",
             "groupOutline": "#cccccc"
