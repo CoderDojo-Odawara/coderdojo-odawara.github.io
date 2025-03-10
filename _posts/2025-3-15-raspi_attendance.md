@@ -100,4 +100,5 @@ sudo systemctl reboot --now
 
 https://qiita.com/nanbuwks/items/348aa1849a12079d75cd
 https://note.com/rei_chemistry/n/ne50dad509570
+https://qiita.com/takaoaoki/items/52963b5bf14558b7514d
 https://ja.stackoverflow.com/questions/99775/%E3%83%A9%E3%82%BA%E3%83%91%E3%82%A4%E3%81%ABnfcpy%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%97%E3%81%9F%E3%81%84
