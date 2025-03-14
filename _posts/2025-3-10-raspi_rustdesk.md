@@ -41,8 +41,6 @@ bash raspi-disp-switcher.sh x11
 ```
 でうまく切り替え、RustDeskでの遠隔操作が可能になることを確認。  
 
-＄HOME/.config/labwc/autostart
-{: .btn .btn--primary}
 
 ###### 参考文献
 1.[https://pi-apps.io/install-app/install-rustdesk-on-raspberry-pi/](https://pi-apps.io/install-app/install-rustdesk-on-raspberry-pi/)
