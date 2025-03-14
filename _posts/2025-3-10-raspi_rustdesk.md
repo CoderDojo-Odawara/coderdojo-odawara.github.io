@@ -44,11 +44,5 @@ bash raspi-disp-switcher.sh x11
 ＄HOME/.config/labwc/autostart
 {: .btn .btn--primary}
 
-```
-bash $HOME/raspi-disp-switcher.sh X11
-rustdesk
-```
-を追加、リブート後に無事RustDeskで操作ができるようになった。  
-
 ###### 参考文献
 1.[https://pi-apps.io/install-app/install-rustdesk-on-raspberry-pi/](https://pi-apps.io/install-app/install-rustdesk-on-raspberry-pi/)
