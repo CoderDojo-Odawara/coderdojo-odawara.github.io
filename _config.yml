@@ -113,8 +113,8 @@ analytics:
 
 # Site Author
 author:
-  name             : ""
-  avatar           : "" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  name             : 
+  avatar           :  # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Scratch / Node-RED / KNIME / Markdown"
   location         : "Odawara, Japan"
   email            :
