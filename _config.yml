@@ -113,8 +113,8 @@ analytics:
 
 # Site Author
 author:
-  name             : "3月15日までの仮ロゴ"
-  avatar           : "/assets/images/CoderDojo.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  name             : "CoderDojo 小田原"
+  avatar           : "assets/images/CoderDojo-Odawara.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Scratch / micro:bit / toio / pyxel / NODE-RED / KNIME"
   location         : "Odawara, Japan"
   email            :
