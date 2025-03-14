@@ -11,7 +11,7 @@
         "type": "function",
         "z": "599c8c01368ee592",
         "name": "重複判定する",
-        "func": "msg.payload = msg.payload.toUpperCase();\nmsg.payload = msg.payload.replace(/\\r?\\n/g, \"\");\n\nvar id = global.get(\"befor_id\");\n\nif (msg.payload === null) {\n    msg.payload = 'null';\n} else if (id === msg.payload) {\n    msg.id = msg.payload;\n    msg.payload = \"dupe\";\n} else {\n    id = msg.payload;\n    global.set(\"befor_id\", id);\n}\n\nreturn msg;\n",
+        "func": "msg.payload = msg.payload.toUpperCase();\nmsg.payload = msg.payload.replace(/\\r?\\n/g, \"\");\n\nvar id = global.get(\"befor_id\");\n\nif (msg.payload === null) {\n    msg.payload = '';\n} else if (id === msg.payload) {\n    msg.id = msg.payload;\n    msg.payload = \"dupe\";\n} else {\n    id = msg.payload;\n    global.set(\"befor_id\", id);\n}\n\nreturn msg;\n",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -81,8 +81,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 3,
-        "x": 540,
-        "y": 300,
+        "x": 560,
+        "y": 240,
         "wires": [
             [
                 "f2e83cc70ae37f2e"
@@ -129,7 +129,7 @@
         "name": "テスト用",
         "info": "",
         "x": 100,
-        "y": 260,
+        "y": 160,
         "wires": []
     },
     {
@@ -211,7 +211,7 @@
         "payload": "jugemujugemu",
         "payloadType": "str",
         "x": 100,
-        "y": 300,
+        "y": 240,
         "wires": [
             [
                 "0a8252a60ee700ad"
@@ -338,7 +338,7 @@
         "type": "function",
         "z": "599c8c01368ee592",
         "name": "発表者名を抽出",
-        "func": "let str = msg.payload[3];\nmsg.payload = [{\"今日の発表者\": str }]; // 1列のテーブルとして表示\nreturn msg;\n\n\n",
+        "func": "let str = msg.payload[0];\nmsg.payload = [{\"今日の発表者\": str }]; // 1列のテーブルとして表示\nreturn msg;\n\n\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -374,7 +374,7 @@
         "topic": "",
         "payload": "[]",
         "payloadType": "json",
-        "x": 150,
+        "x": 190,
         "y": 720,
         "wires": [
             [
@@ -399,8 +399,8 @@
         "z": "599c8c01368ee592",
         "name": "ダッシュボードの初期化",
         "info": "",
-        "x": 150,
-        "y": 660,
+        "x": 170,
+        "y": 680,
         "wires": []
     },
     {
@@ -435,7 +435,7 @@
         "type": "GSheet",
         "z": "599c8c01368ee592",
         "creds": "d0e3e8126bc60146",
-        "method": "update",
+        "method": "append",
         "action": "",
         "sheet": "",
         "cells": "発表者!A1",
@@ -493,7 +493,7 @@
         "iconColor": "",
         "enableClick": true,
         "enablePointerdown": false,
-        "pointerdownPayload": "",
+        "pointerdownPayload": "Autoplay",
         "pointerdownPayloadType": "str",
         "enablePointerup": false,
         "pointerupPayload": "",
@@ -502,7 +502,8 @@
         "y": 780,
         "wires": [
             [
-                "912184f137f6e0f9"
+                "912184f137f6e0f9",
+                "f0db94ebfe892b28"
             ]
         ]
     },
@@ -556,7 +557,7 @@
         "passthru": false,
         "autocols": false,
         "showSearch": false,
-        "selectionType": "checkbox",
+        "selectionType": "click",
         "columns": [
             {
                 "title": "",
@@ -579,82 +580,6 @@
         ]
     },
     {
-        "id": "97ce01018e304172",
-        "type": "inject",
-        "z": "599c8c01368ee592",
-        "name": "自動実行",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "5",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 100,
-        "y": 420,
-        "wires": [
-            [
-                "b6ff21deda237638"
-            ]
-        ]
-    },
-    {
-        "id": "b6ff21deda237638",
-        "type": "exec",
-        "z": "599c8c01368ee592",
-        "command": "/home/coderdojo/miniforge3/bin/python3 /home/coderdojo/nfcpy/examples/tagtool.py show",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "true",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "NFC読み取り",
-        "x": 320,
-        "y": 420,
-        "wires": [
-            [
-                "0a8252a60ee700ad"
-            ],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "1d0c4ee753ead962",
-        "type": "change",
-        "z": "599c8c01368ee592",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 340,
-        "y": 320,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "abe2ebe2e9c02b92",
         "type": "function",
         "z": "599c8c01368ee592",
@@ -671,6 +596,130 @@
         "wires": [
             [
                 "0020f62a1a0cb0d9"
+            ]
+        ]
+    },
+    {
+        "id": "8403dc0e06225fd9",
+        "type": "comment",
+        "z": "599c8c01368ee592",
+        "name": "本番用",
+        "info": "",
+        "x": 90,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "f0db94ebfe892b28",
+        "type": "change",
+        "z": "599c8c01368ee592",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "msg.ui_update",
+                "pt": "msg",
+                "to": "autoplay",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0feac652bda07db8",
+        "type": "inject",
+        "z": "599c8c01368ee592",
+        "name": "自動実行",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 420,
+        "wires": [
+            [
+                "9bf0d7e2bee49124"
+            ]
+        ]
+    },
+    {
+        "id": "9bf0d7e2bee49124",
+        "type": "exec",
+        "z": "599c8c01368ee592",
+        "command": "/home/coderdojo/miniforge3/bin/python3 /home/coderdojo/pasori.py",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "true",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "NFC読み取り",
+        "x": 300,
+        "y": 340,
+        "wires": [
+            [
+                "0a8252a60ee700ad",
+                "f60c693cd5941240"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "7f0f8b34b755d469",
+        "type": "comment",
+        "z": "599c8c01368ee592",
+        "name": "Gsheetを触ったらフローを再起動すること。",
+        "info": "",
+        "x": 370,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "f60c693cd5941240",
+        "type": "change",
+        "z": "599c8c01368ee592",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "　",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 300,
+        "y": 420,
+        "wires": [
+            [
+                "9bf0d7e2bee49124"
             ]
         ]
     },
@@ -729,7 +778,7 @@
         "ui": "b5853b72a49e2819",
         "path": "/page1",
         "icon": "home",
-        "layout": "grid",
+        "layout": "flex",
         "theme": "8975986c25dbc19f",
         "breakpoints": [
             {
@@ -784,7 +833,7 @@
         "colors": {
             "surface": "#ffffff",
             "primary": "#324a77",
-            "bgPage": "#eeeeee",
+            "bgPage": "#324a77",
             "groupBg": "#ffffff",
             "groupOutline": "#cccccc"
         },
