@@ -45,5 +45,4 @@ bash raspi-disp-switcher.sh x11
 ###### 参考文献
 1.[https://pi-apps.io/install-app/install-rustdesk-on-raspberry-pi/](https://pi-apps.io/install-app/install-rustdesk-on-raspberry-pi/)
 
-https://pi-apps.io/install-app/install-rustdesk-on-raspberry-pi/
 
