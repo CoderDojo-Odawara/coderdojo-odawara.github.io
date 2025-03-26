@@ -1,9 +1,9 @@
 ---
 layout: home
 author_profile: true
-title: 参加者募集開始につきまして
 ---
-    
+
+  
 まだまだ道具類は揃っていませんが[Connpass](https://coderdojo-odawara.connpass.com/)にて参加者募集中です。
 {: .notice--info}
 
