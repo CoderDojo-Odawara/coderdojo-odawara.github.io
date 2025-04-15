@@ -1,0 +1,24 @@
+---
+layout: single
+title: 202504活動記録
+description: "2025年4月にやったこと"
+lang: ja_JP
+header:
+  overlay_image: /assets/images/x.png
+  overlay_filter: 0.4
+  caption: "CoderDojo 小田原設立の記録"
+tagline: "CoderDojo 小田原設立の記録"
+categories: 
+ - 設立記録
+tags:
+ - log
+toc: false
+draft: true
+last_modified_at: 2025-04-30
+---
+
+やったこと  
+- Progate法人プランの援助を受ける。ありがとうありがとう。
+- CoderDojo 小田原 小規模で一般向け開催。今後しばらく小規模開催の予定。
+- 今後に向けてM5 Stack 調達。
+- 今後に向けてIchigo Dyhook、およびIchigodakeの調達検討開始。
