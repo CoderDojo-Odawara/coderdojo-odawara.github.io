@@ -1,6 +1,6 @@
 ---
 title: 備品類
-permalink: /equipment/
+permalink: /equipments/
 last_modified_at: 2025-07-22
 toc: no
 sitemap: true
