@@ -44,6 +44,8 @@ CoderDojo小田原はこの憲章に賛同し、2025年2月に小田原市で活
 
 <iframe src="https://goofy-titanium-a19.notion.site/ebd/23830118e221817f8660feeb4c335376?v=23830118e2218147bc40000c950ad4c8" width="100%" height="600" frameborder="0" allowfullscreen />
 
+
+
   
 ## スケジュール確認、参加予約
 Connpass CoderDojo 小田原グループにてスケジュール確認、参加予約ができます。  
