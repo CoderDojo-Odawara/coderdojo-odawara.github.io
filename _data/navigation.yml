@@ -3,7 +3,7 @@ main:
     url: /about/
   - title: "学べるプログラム例"
     url: /programs/
-- title: "備品類"
+  - title: "備品類"
     url: /equipments/   
   - title: "活動記録"
     url: /year-archive/
