@@ -7,7 +7,7 @@ author_profile: true
 
 
   
-まだまだ道具類は揃っていませんが[Connpass](https://coderdojo-odawara.connpass.com/)にて参加者募集中です。
+[Connpass](https://coderdojo-odawara.connpass.com/)にて参加者募集中です。
 {: .notice--info}
 
 ### 開催予定
