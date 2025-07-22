@@ -31,9 +31,12 @@ CoderDojo小田原はこの憲章に賛同し、2025年2月に小田原市で活
  
 
 ## お貸しできる機材
-- micro:bit (3台)-> 1台は長期貸し出し可
-- toio(1式)
-- PC端末(一式)
+- 長期貸し出し可否関係なくCoderDojoでお使いいただけます。
+- 長期貸し出し可のものは1か月単位で長期貸し出し可能です。
+    - CoderDojo提供のものは最長6か月まで貸し出し可能とします。(再貸出し可)
+    - チャンピオン私物のものは最長3か月まで貸し出し可とします。(再貸出しは相談)
+    - 貸し出し時に保護者の方のお名前、住所、ご連絡先を控えさせて頂きます。
+    - その他貸し出し時の注意点は貸し出し時に確認させて頂きます。
 
 <iframe width=600 height=400 src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSeEoJxp-T8zQZiI9OxioTqttmog89-QN2KjDRDR7pbY-qaAJH6Nkn1WyqeMYd4yIPoqWPEB2BOpF8g/pubhtml?widget=true&amp;headers=false"></iframe>
 
