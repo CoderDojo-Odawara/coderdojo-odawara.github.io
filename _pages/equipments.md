@@ -12,7 +12,6 @@ sitemap: true
     - チャンピオン私物のものは最長3か月まで貸し出し可とします。(再貸出しは相談)
     - その他貸し出し時の注意点は貸し出し時に確認させて頂きます。
 
-<iframe src="https://goofy-titanium-a19.notion.site/ebd/23e30118e221804f8258fcba85b65fe5" width="100%" height="600" frameborder="0" allowfullscreen />
 
 
 ## お貸しできる図書
