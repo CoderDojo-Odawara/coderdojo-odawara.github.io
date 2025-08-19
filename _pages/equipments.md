@@ -13,6 +13,15 @@ sitemap: true
     - その他貸し出し時の注意点は貸し出し時に確認させて頂きます。
 
 
+## test
+
+<!-- 縦並びのiframe -->
+<iframe src="https://www.example.com" width="400" height="300"></iframe>
+<br>
+<iframe src="https://www.wikipedia.org" width="400" height="300"></iframe>
+
+---
+
 
 ## お貸しできる図書
 
