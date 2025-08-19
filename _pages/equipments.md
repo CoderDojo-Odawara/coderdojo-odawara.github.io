@@ -14,17 +14,10 @@ sitemap: true
 
 
 ## test
-
 <!-- 縦並びのiframe -->
-<iframe src="https://www.example.com" width="400" height="300"></iframe>
+<iframe src="https://goofy-titanium-a19.notion.site/ebd/23e30118e221804f8258fcba85b65fe5" width="100%" height="600" frameborder="0" allowfullscreen> </iframe>
 <br>
-<iframe src="https://www.wikipedia.org" width="400" height="300"></iframe>
+<iframe src="https://goofy-titanium-a19.notion.site/ebd/23830118e221817f8660feeb4c335376?v=23830118e2218147bc40000c950ad4c8" width="100%" height="600" frameborder="0" allowfullscreen></iframe>
 
 ---
-
-
-## お貸しできる図書
-
-<iframe src="https://goofy-titanium-a19.notion.site/ebd/23830118e221817f8660feeb4c335376?v=23830118e2218147bc40000c950ad4c8" width="100%" height="600" frameborder="0" allowfullscreen />
-
 
