@@ -17,6 +17,6 @@ author_profile: true
 
 #### CoderDojo 小田原を支えてくださる企業さま
 
-<img src="assets/images/3-1-2line-rgb-whiteback.png" width=350 />　　　<img src="assets/images/logo-color_horizontal-composition.png" width=350 />
+<img src="assets/images/3-1-2line-rgb-whiteback.png" width=250 />　　　<img src="assets/images/logo-color_horizontal-composition.png" width=250 />
   
   
