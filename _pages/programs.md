@@ -1,7 +1,7 @@
 ---
 title: 学べるプログラム例
 permalink: /programs/
-last_modified_at: 2025-02-24
+last_modified_at: 2025-09-09
 toc: true
 sitemap: true
 ---
