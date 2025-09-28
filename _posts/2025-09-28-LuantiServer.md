@@ -76,13 +76,13 @@ screen -S luanti ./bin/luantiserver --gameid {Loadするゲーム名} --world wo
 sudo chmod +x ./startluanti.sh
 ```
 
-以降startluanti.shを実行することで　luanti screen 内でluanti serverが起動する。`Ctrl +a ->Ctrl +d` でscreenから抜けたらOK＞
+以降startluanti.shを実行することで　luanti screen 内でluanti serverが起動する。`Ctrl + A ->Ctrl + D` でscreenから抜けたらOK＞
 
 serverを終了させたい場合は
 ```shell
 screen -r luanti
 ```
-でluanti screenに切り替えて`Ctrl +c`　で終了し、`Ctrl +a ->Ctrl +d` でscreenから抜ける。
+でluanti screenに切り替えて`Ctrl + C`　で終了し、`Ctrl + A ->Ctrl + D` でscreenから抜ける。
 
 一旦worldを作ると関連ファイル群が作成され、その中のworld.mtを編集してloadするMODを設定する。今回はlwscratchを追加するので
 
