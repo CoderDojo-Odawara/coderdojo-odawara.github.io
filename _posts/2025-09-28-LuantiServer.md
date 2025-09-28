@@ -63,7 +63,9 @@ luanti ディレクトリ内のmintest.conf.exampleをいい感じに修正し�
 
   
   
-homeディレクトリにルートに以下のshファイルを作成
+homeディレクトリにルートに以下のshファイルを作成  
+  
+startluanti.sh {: .btn .btn--primary}
 ```shell
 #!/bin/bash
 cd luanti
