@@ -43,10 +43,25 @@ sudo netfilter-persistent save
 sudo netfilter-persistent reload
 
 ```
+## 依存パッケージの準備
+flatpak版をインストールしたりDockerのコンテナを入れても良いのだけど今回はソースからビルドすることとした。  
+ということで必要な環境を準備する。
+
+依存パッケージの導入
+```shell
+sudo apt install g++ ninja-build cmake libsqlite3-dev libcurl4-openssl-dev zlib1g-dev libgmp-dev libjsoncpp-dev libzstd-dev libncurses-dev
+```
+LuaJITのビルド
+```shell
+git clone https://github.com/LuaJIT/LuaJIT luajit
+cd luajit
+make amalg
+```
 
 ## Luantiの環境構築
-下準備が終わったのでLuantiの環境を構築する。flatpak版をインストールしたりDockerのコンテナを入れても良いのだけど今回はソースからビルドすることとした。
+下準備が終わったのでLuantiの環境を構築する。
 ```
+cd ~
 git clone -b stable-5 --depth 1 https://github.com/luanti-org/luanti.git
 cd luanti
 ```
