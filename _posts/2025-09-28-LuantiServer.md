@@ -65,7 +65,7 @@ luanti ディレクトリ内のmintest.conf.exampleをいい感じに修正し�
   
 homeディレクトリにルートに以下のshファイルを作成
 ```startluanti.sh
-#!/bin/bash
+¥#!/bin/bash
 cd luanti
 screen -S luanti ./bin/luantiserver --gameid {Loadするゲーム名} --world worlds/{world名} --config ./luanti.conf
 ```
@@ -85,7 +85,7 @@ screen -r luanti
 一旦worldを作ると関連ファイル群が作成され、その中のworld.mtを編集してloadするMODを設定する。今回はlwscratchを追加するので
 
 ```worls.mt
-# lwscratchを有効化
+¥# lwscratchを有効化
 load_mod_lwscratch = true
 ```
 と追加してserverを再度起動し、MODが適用されていることを確認。
