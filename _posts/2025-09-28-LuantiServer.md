@@ -7,7 +7,7 @@ header:
   overlay_image: /assets/images/x.png
   overlay_filter: 0.4
   caption: ""
-tagline: "オープンソースのボクセルゲームエンジン"
+tagline: "オープンソースのボクセルゲームエンジンの環境を整備する。"
 categories: 
 - チャンピオン記録帳
 tags:
@@ -41,7 +41,6 @@ sudo iptables -A INPUT -p udp --dport 30000 -j ACCEPT
 ```shell
 sudo netfilter-persistent save
 sudo netfilter-persistent reload
-
 ```
 ## 依存パッケージの準備
 flatpak版をインストールしたりDockerのコンテナを入れても良いのだけど今回はソースからビルドすることとした。  
@@ -72,13 +71,13 @@ cmake .. -G Ninja -DBUILD_CLIENT=0 -DBUILD_SERVER=1 -DRUN_IN_PLACE=1 -DBUILD_UNI
 ninja
 ```
 
-ゲーム、MODは個別にzipを落としていくのが王道だろうけどもSFTPでローカルの端末からコピーして使用することとした。
+ゲーム、MODは個別にzipを落としていくのが王道だろうけども手元の端末に使いたいworldとModが揃っていたので今回はSFTPでローカルの端末からコピーした。
 
 luanti ディレクトリ内のmintest.conf.exampleをいい感じに修正してluanti.confとして保存する。default privesを修正してteleportとかflyとかを追加すると良いかも。
 
   
   
-homeディレクトリにルートに以下のshファイルを作成  
+サーバーの起動はマニュアルでやりたいけどいちいち面倒な操作はしたくないので`~/`にサーバー起動用のshファイルを作成 
   
 ***startluanti.sh***
 ```shell
@@ -91,7 +90,7 @@ screen -S luanti ./bin/luantiserver --gameid {Loadするゲーム名} --world wo
 sudo chmod +x ./startluanti.sh
 ```
 
-以降startluanti.shを実行することで　luanti screen 内でluanti serverが起動する。`Ctrl + A ->Ctrl + D` でscreenから抜けたらOK＞
+以降startluanti.shを実行することで　luanti screen 内でluanti serverが起動する。そのままだとLuantiスクリーンに入ったままなので`Ctrl + A -> Ctrl + D` でscreenから抜けたらsshを切ってもOK。
 
 serverを終了させたい場合は
 ```shell
