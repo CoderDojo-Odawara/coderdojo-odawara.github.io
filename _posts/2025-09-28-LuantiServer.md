@@ -33,6 +33,16 @@ Minecraftサーバーだと到底動かないけどもLuanti サーバーであ�
 
 以下サーバー構築の備忘録。
 
+## SWAP領域の設定
+そのままだとLuanti Serverの高負荷時に落ちてしまうことがあるのでスワップ領域を確保しておく。
+
+```shell
+sudo dd if=/dev/zero of=/swapfile bs=1M count=2048
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+/swapfile none swap sw 0 0
+```
 ## 使用ポートの開放
 DojoPaasは初期状態でLuantiサーバーで使用するUDP 30000が塞がれているのでポート解放をする必要がある。  
 
