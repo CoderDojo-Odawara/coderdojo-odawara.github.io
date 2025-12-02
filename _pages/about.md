@@ -40,7 +40,9 @@ Connpass CoderDojo 小田原グループにてスケジュール確認、参加�
 
 西湘テクノパーク、干物の山安小田原工場から至近。帰りに山安の直売場で干物を買うこともできます。
 
-<iframe src="橘タウンセンターこゆるぎ" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<iframe src="https://maps.google.co.jp/maps?output=embed&q=橘タウンセンターこゆるぎ" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+
 
 ### [川東タウンセンターマロニエ](https://www.city.odawara.kanagawa.jp/public-i/t-center/maronie/maroniegaiyou.html)
 
