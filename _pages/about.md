@@ -1,7 +1,7 @@
 ---
 title: CoderDojo 小田原について
 permalink: /about/
-last_modified_at: 2025-07-15
+last_modified_at: 2025-12-02
 toc: true
 sitemap: true
 ---
