@@ -584,7 +584,7 @@
         "type": "mqtt in",
         "z": "599c8c01368ee592",
         "name": "",
-        "topic": "CoderDojo/tkg",
+        "topic": "channel/resource", // channel/resource の形で入力する
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "ec3fcb3f0cf2d7e9",
