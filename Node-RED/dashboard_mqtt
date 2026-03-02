@@ -11,7 +11,7 @@
         "type": "function",
         "z": "599c8c01368ee592",
         "name": "連続判定",
-        "func": "msg.payload = msg.payload.toUpperCase();\nmsg.payload = msg.payload.replace(/\\r?\\n/g, \"\");\n\nvar id = global.get(\"befor_id\");\n\nif (msg.payload === null) {\n    msg.payload = '';\n} else if (id === msg.payload) {\n    msg.id = msg.payload;\n    msg.payload = \"dupe\";\n} else {\n    id = msg.payload;\n    global.set(\"befor_id\", id);\n}\n\nreturn msg;\n",
+        "func": "//msg.payload = msg.payload.toUpperCase();\n//msg.payload = msg.payload.replace(/\\r?\\n/g, \"\");\n\nvar id = global.get(\"befor_id\");\n\nif (msg.payload === null) {\n    msg.payload = '';\n} else if (id === msg.payload) {\n    msg.id = msg.payload;\n    msg.payload = \"dupe\";\n} else {\n    id = msg.payload;\n    global.set(\"befor_id\", id);\n}\n\nreturn msg;\n",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -22,7 +22,8 @@
         "y": 200,
         "wires": [
             [
-                "a440b77d3428c118"
+                "a440b77d3428c118",
+                "a3f2e498b8fa42f3"
             ]
         ]
     },
@@ -45,7 +46,7 @@
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "Enter spread sheet ID", //googleスプシの IDを入れる。Gsheet nodeには認証の鍵情報(JSONファイルの内容)を入れる
+        "payload": "1Bo8qtQdOYGffxWqGh-20y_9BuBXyhPacgNAj-L_YQHw",
         "payloadType": "str",
         "x": 100,
         "y": 80,
@@ -209,7 +210,7 @@
                 "t": "set",
                 "p": "date",
                 "pt": "msg",
-                "to": "$fromMillis($millis() + 9*60*60*1000,'[Y0001]/[M01]/[D01] [H01]:[m01]')",
+                "to": "$fromMillis($millis() + 9*60*60*1000,'[Y0001]/[M01]/[D01]')",
                 "tot": "jsonata"
             }
         ],
@@ -288,7 +289,7 @@
         "payload": "[]",
         "payloadType": "json",
         "x": 130,
-        "y": 580,
+        "y": 520,
         "wires": [
             [
                 "912184f137f6e0f9",
@@ -313,7 +314,7 @@
         "name": "ダッシュボードの初期化",
         "info": "",
         "x": 130,
-        "y": 520,
+        "y": 480,
         "wires": []
     },
     {
@@ -327,6 +328,13 @@
                 "p": "payload",
                 "pt": "msg",
                 "to": "payload.\"今日の発表者\"",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "date",
+                "pt": "msg",
+                "to": "$fromMillis($millis() + 9*60*60*1000,'[Y0001]/[M01]/[D01]')",
                 "tot": "jsonata"
             }
         ],
@@ -347,15 +355,15 @@
         "id": "f17b7b0abbffa373",
         "type": "function",
         "z": "599c8c01368ee592",
-        "name": "SheetのID取得しなおし",
-        "func": "msg.sheet = global.get(\"sheet\");\nreturn msg;",
+        "name": "書き込み内容作成",
+        "func": "msg.sheet = global.get(\"sheet\");\nmsg.payload = [msg.date , msg.payload];\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 950,
+        "x": 930,
         "y": 600,
         "wires": [
             [
@@ -416,7 +424,7 @@
         "method": "append",
         "action": "",
         "sheet": "",
-        "cells": "参加者!A1",
+        "cells": "A1",
         "flatten": false,
         "name": "参加者書込",
         "x": 570,
@@ -442,7 +450,8 @@
         "y": 420,
         "wires": [
             [
-                "abe2ebe2e9c02b92"
+                "abe2ebe2e9c02b92",
+                "194b25a57d3757da"
             ]
         ]
     },
@@ -571,7 +580,7 @@
         "mobileBreakpointType": "defaults",
         "action": "append",
         "className": "",
-        "x": 930,
+        "x": 890,
         "y": 520,
         "wires": [
             [
@@ -584,7 +593,7 @@
         "type": "mqtt in",
         "z": "599c8c01368ee592",
         "name": "",
-        "topic": "channel/resource", // channel/resource の形で入力する
+        "topic": "CoderDojo/tkg",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "ec3fcb3f0cf2d7e9",
@@ -605,7 +614,7 @@
         "type": "function",
         "z": "599c8c01368ee592",
         "name": "ID判別",
-        "func": "var table = {\n    \"JUGEMUJUGEMU\": { \"name\": \"jugemu\", \"title\": \"goko\" },\n    \"001\": { \"name\": \"田中太郎\", \"title\": \"チャンピオン\" },\n    \"002\": { \"name\": \"鈴木花子\", \"title\": \"ニンジャ\" },\n    \"003\": { \"name\": \"佐藤一郎\", \"title\": \"ニンジャ\" }\n};\n\nvar user = table[msg.payload];\n\nif (user) {\n    msg.payload = {\n        name: user.name,\n        title: user.title\n    };\n} else {\n    msg.payload = { name: \"ゲストユーザー\", title: \"ゲスト\" };\n}\nreturn msg;",
+        "func": "var table = {\n    \"JUGEMUJUGEMU\": { \"name\": \"jugemu\", \"title\": \"goko\" },\n    \"bytearray(b'Za\\\\x97\\\\xddQA\\\\x89\\\\x00\\\\x00\\\\x00')\": { \"name\": \"やまもと\", \"title\": \"チャンピオン\" },\n    \"bytearray(b'ZAJ\\\\xdaQA\\\\x89\\\\x00\\\\x00\\\\x00')\": { \"name\": \"まりこ\", \"title\": \"ニンジャ\" },\n    \"bytearray(b'Z1\\\\xed\\\\xdcQA\\\\x89\\\\x00\\\\x00\\\\x00')\": { \"name\": \"あきひさ\", \"title\": \"ニンジャ\" }\n};\n\nvar user = table[msg.payload];\n\nif (user) {\n    msg.payload = {\n        name: user.name,\n        title: user.title\n    };\n} else {\n    msg.payload = { name: \"ゲストユーザー\", title: \"ゲスト\" };\n}\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -628,6 +637,39 @@
         "info": "",
         "x": 920,
         "y": 460,
+        "wires": []
+    },
+    {
+        "id": "194b25a57d3757da",
+        "type": "debug",
+        "z": "599c8c01368ee592",
+        "name": "debug 2",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 290,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "a3f2e498b8fa42f3",
+        "type": "debug",
+        "z": "599c8c01368ee592",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 460,
+        "y": 120,
         "wires": []
     },
     {
@@ -784,7 +826,7 @@
         }
     },
     {
-        "id": "d929a25f7ac2935f",
+        "id": "324e9fd644edbb26",
         "type": "global-config",
         "env": [],
         "modules": {
