@@ -13,7 +13,7 @@ categories:
 tags:
 - DojoPaaS
 - Luanti
-toc: true
+toc: false
 last_modified_at: 2026-06-01
 ---
 
