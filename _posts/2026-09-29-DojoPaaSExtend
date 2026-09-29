@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "DojoPaaSにMQTTサーバーを建ててみた"
+title: DojoPaaSにMQTTサーバーを建ててみた
 description: "参加記録に使っているMQTTブローカーを自前で用意する"
 lang: ja_JP
 header:
@@ -8,14 +8,15 @@ header:
   overlay_filter: 0.4
   caption: ""
 tagline: ""
-categories:
-  - チャンピオン記録帳
+categories: 
+- チャンピオン記録帳
 tags:
-  - DojoPaaS
-  - MQTT
-  - Mosquitto
-  - Tailscale
-toc: true
+- DojoPaaS
+- MQTT
+- Mosquitto
+- Tailscale
+toc: false
+draft: true
 last_modified_at: 2026-09-29
 ---
 
