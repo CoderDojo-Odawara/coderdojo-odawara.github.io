@@ -3,6 +3,11 @@ layout: single
 title: "DojoPaaSにMQTTサーバーを建ててみた"
 description: "参加記録に使っているMQTTブローカーを自前で用意する"
 lang: ja_JP
+header:
+  overlay_image: /assets/images/x.png
+  overlay_filter: 0.4
+  caption: ""
+tagline: ""
 categories:
   - チャンピオン記録帳
 tags:
@@ -13,7 +18,6 @@ tags:
 toc: true
 last_modified_at: 2026-09-29
 ---
-
 CoderDojo 小田原では、参加者の記録にM5Stackを使っています。M5Stackから送った情報をNode-REDで受け取り、ダッシュボード表示しつつGoogleスプレッドシートに記録する仕組みです。M5StackとNode-REDの間の通信にはMQTTを使っています。
 
 ところが、そのMQTTブローカーは海外の無料サービスをお借りしていました。手軽に試せるのはありがたいのですが、接続が不安定なことがあります。それに、これまでの通信は暗号化していませんでした。参加記録に使い続けるには、そろそろ見直したいところです。
