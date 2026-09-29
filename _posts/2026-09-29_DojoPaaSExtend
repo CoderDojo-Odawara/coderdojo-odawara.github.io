@@ -1,0 +1,142 @@
+---
+layout: single
+title: "DojoPaaSにMQTTサーバーを建ててみた"
+description: "参加記録に使っているMQTTブローカーを自前で用意する"
+lang: ja_JP
+categories:
+  - チャンピオン記録帳
+tags:
+  - DojoPaaS
+  - MQTT
+  - Mosquitto
+  - Tailscale
+toc: true
+last_modified_at: 2026-09-29
+---
+
+CoderDojo 小田原では、参加者の記録にM5Stackを使っています。M5Stackから送った情報をNode-REDで受け取り、ダッシュボード表示しつつGoogleスプレッドシートに記録する仕組みです。M5StackとNode-REDの間の通信にはMQTTを使っています。
+
+ところが、そのMQTTブローカーは海外の無料サービスをお借りしていました。手軽に試せるのはありがたいのですが、接続が不安定なことがあります。それに、これまでの通信は暗号化していませんでした。参加記録に使い続けるには、そろそろ見直したいところです。
+
+そこで、Luantiのサーバーにも使っているDojoPaaSに、今度はMQTTブローカーを建てることにしました。使うソフトはMosquittoです。外からの接続にはTailscale Funnelを使います。TLSで暗号化した通信の入口を手軽に用意できるのが、Tailscaleを選んだ理由です。
+
+## Mosquittoを入れる
+
+まずはUbuntuのサーバーにMosquittoをインストールします。送受信を試すためのクライアントも一緒に入れておきます。
+
+```shell
+sudo apt update
+sudo apt install mosquitto mosquitto-clients
+```
+
+起動しているか確認します。
+
+```shell
+systemctl status mosquitto
+```
+
+設定を直接指定して起動を試すときは、`mosquitto -c /etc/mosquitto/mosquitto.conf`という形になります。ただし、サービスとして起動中のMosquittoと同じポートでは同時に動かせません。普段はサービスとして動かすことにします。
+
+## 接続用のユーザーを作る
+
+誰でも接続できる設定にはせず、ユーザー名とパスワードを用意します。ここでは仮にユーザー名を`dojo`とします。パスワードはコマンドを実行すると聞かれます。
+
+```shell
+sudo mosquitto_passwd -c /etc/mosquitto/password_file dojo
+sudo chown mosquitto:mosquitto /etc/mosquitto/password_file
+sudo chmod 600 /etc/mosquitto/password_file
+```
+
+`-c`は新しいパスワードファイルを作る指定です。あとからユーザーを追加するときに付けると、既存のファイルを作り直してしまうので気を付けます。
+
+続いて設定ファイルを作ります。
+
+```shell
+sudo vim /etc/mosquitto/conf.d/dojo.conf
+```
+
+中身は次のようにします。
+
+```conf
+listener 1883 127.0.0.1
+allow_anonymous false
+password_file /etc/mosquitto/password_file
+```
+
+`127.0.0.1`を指定したので、Mosquittoはこのサーバー内からの接続だけを受け付けます。外からの接続は、あとで設定するFunnelに担当してもらいます。
+
+設定を読み直して、起動状態を確認します。
+
+```shell
+sudo systemctl restart mosquitto
+sudo systemctl status mosquitto
+```
+
+
+## まずはサーバー内で通信テスト
+
+ターミナルを二つ開きます。一つ目では`dojo/test`というトピックを購読します。
+
+```shell
+mosquitto_sub -h 127.0.0.1 -p 1883 -u dojo -P '設定したパスワード' -t 'dojo/test' -v
+```
+
+もう一つのターミナルからメッセージを送ります。
+
+```shell
+mosquitto_pub -h 127.0.0.1 -p 1883 -u dojo -P '設定したパスワード' -t 'dojo/test' -m 'こんにちは'
+```
+
+最初の画面に`dojo/test こんにちは`と出れば、ひとまずMosquittoは仕事をしてくれています。
+
+ここでは手順を分かりやすくするため、パスワードをコマンドに直接書いています。実際のパスワードをこの形で入力すると履歴などに残り得るので、運用時は入力方法を変えます。
+
+## Tailscaleを入れる
+
+次はサーバーへTailscaleを導入します。
+
+```shell
+curl -fsSL https://tailscale.com/install.sh | sh
+sudo tailscale up
+```
+
+表示されたURLからあらかじめ作成しておいたユーザーIDで認証したら、接続状態を確認します。
+
+```shell
+tailscale status
+```
+
+Tailscaleを使うと、証明書の取得や更新を自分で組み立てずに、TLSで通信できる公開先を用意できます。今回はM5Stackから使いたいので、Tailscaleに参加している機器だけがアクセスできる状態ではなく、FunnelでMQTTの接続口を公開します。
+
+## Funnelで公開する
+
+Mosquittoはサーバー内の1883番ポートで待っています。一方、Funnelで公開できるポートは限られているので、例として外側の8443番ポートから内側の1883番ポートへ転送します。
+
+```shell
+sudo tailscale funnel --bg --tls-terminated-tcp=8443 tcp://127.0.0.1:1883
+```
+
+初回はFunnelを有効にするための操作を求められることがあります。設定後、公開先を確認します。
+
+```shell
+tailscale funnel status
+```
+
+表示された`*.ts.net`のホスト名と8443番ポートが、外から使う接続先です。M5StackやNode-RED側では、そのホスト名とポートを指定し、**TLSを有効**にして接続します。従来の暗号化していない1883番ポートへの接続設定を、そのまま向けるだけではつながりません。
+
+ここで使っているのは、FunnelがTLSを受けてからMosquittoへTCPで渡す設定です。Funnelに`--https`でMosquittoを指定する設定とは異なります。また、HTTPSのURLをブラウザで開いてもMQTTの通信テストにはなりません。
+
+なお、公開を止めたい場合は、次のようにします。
+
+```shell
+sudo tailscale funnel --tls-terminated-tcp=8443 off
+tailscale funnel status
+```
+
+## 使ってみた結果
+
+M5StackとNode-REDの接続先を新しいブローカーに切り替えたところ、無事にMQTT通信が成立しました。Node-REDからGoogleスプレッドシートへの参加記録もできています。
+
+驚いたのは速さです。これまでは参加者ダッシュボードへ反映されるまで2秒程度かかっていたのが、切り替え後は0.1秒程度に。体感でも分かるくらい爆速になりました。ブローカーを自前で動かせるようになり、通信もTLSで暗号化できて、ずいぶん使いやすくなっています。
+
+DojoPaaSにはすでにLuantiサーバーを建てていますが、MQTTのような小さなサービスにも使えるのはありがたいところです。次は、この通信環境を参加記録以外の電子工作にも使ってみたいと思います。
